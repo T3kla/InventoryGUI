@@ -42,6 +42,8 @@ namespace InventorySwapper
             }
         }
         
+        
+        //Todo: Idk if this patch is even needed since I can just call directly to the instance and set the variable why the fuck am I patching it?
         [HarmonyPatch(typeof(InventoryGrid), nameof(InventoryGrid.UpdateGui))]
         public static class InventoryGrid_UpdateGui_w
         {
