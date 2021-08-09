@@ -24,20 +24,8 @@ namespace InventorySwapper
         {
             LoadAssets();
             GUIManager.OnPixelFixCreated += LoadInventoryWidget;
-            On.Humanoid.GetInventory += TestAwake;
         }
-
-        private Inventory TestAwake(On.Humanoid.orig_GetInventory orig, Humanoid self)
-        {
-            var result = orig(self);
-            self.m_inventory.m_width = 4;
-            self.m_inventory.m_height = 8;
-            return result;
-        }
-
         
-
-
         private void LoadAssets()
         {
             AssetBundle assetBundle = AssetUtils.LoadAssetBundleFromResources("inventory", typeof(InventorySwapper).Assembly);
