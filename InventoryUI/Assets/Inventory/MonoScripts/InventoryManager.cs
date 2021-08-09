@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,36 +19,51 @@ public class InventoryManager : MonoBehaviour
     
     private int m_width = 4;
     private int m_height = 4;
-    internal static List<InventoryGrid.Element> m_elements = new List<InventoryGrid.Element>();
-
+    
     internal static InventoryGrid internalgrid;
+    internal static GameObject internalElement;
 
     internal static InventoryGui test;
     private bool Iran = false;
+    internal static RectTransform oldplayergrid;
+    internal static GameObject newparent;
 
     internal void Awake()
     {
-	    test = InventoryGui.instance;
-
+	    internalElement = m_Element;
 	    internalgrid = m_Grid;
-	    var oldplayergrid = test.m_player;
-	    oldplayergrid.gameObject.SetActive(false);
+	    oldplayergrid = test.m_player;
+	    newparent = test.m_player.gameObject;
+	    m_PlayerRoot.transform.SetParent(newparent.transform);
+	    m_PlayerRoot.transform.SetSiblingIndex(newparent.transform.GetSiblingIndex());
+	    var thing = oldplayergrid.GetComponentInChildren<UIGroupHandler>().m_groupPriority;
+	    test.m_player.GetComponentInChildren<InventoryGrid>().m_scrollbar = m_Grid.m_scrollbar;
+	    PlayerGroup.m_groupPriority = thing;
 	    test.m_player = m_PlayerRootRect;
 	    test.m_playerGrid = m_Grid;
 	    test.m_armor = Armor;
 	    test.m_weight = Weight;
-	    test.m_dragItemPrefab = m_DragElement;
+	    
+	    test.m_dragGo = InventorySwapper.InventorySwapper.m_dragGo;
+	    
 	    test.m_uiGroups[1] = PlayerGroup;
 	    test.m_dropButton = DropButton;
-	    test.m_dragInventory = m_Grid.m_inventory;
-	    test.m_splitInventory = m_Grid.m_inventory;
+	    
+	    
+	    DropButton.onClick.AddListener(test.OnDropOutside);
 		InventoryGrid tempgrid = m_Grid;
 		tempgrid.m_onSelected = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>)Delegate.Combine(tempgrid.m_onSelected, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>(test.OnSelectedItem));
 		InventoryGrid tempgrid2 = m_Grid;
 		tempgrid2.m_onRightClick = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i>)Delegate.Combine(tempgrid2.m_onRightClick, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i>(test.OnRightClickItem));
-		    
-    }
+		
+		//Turn off the old UI things we dont wanna lookat anymore
+		Destroy(oldplayergrid.transform.Find("PlayerGrid").gameObject);
+		oldplayergrid.transform.Find("Darken").gameObject.SetActive(false);
+		oldplayergrid.transform.Find("Bkg").gameObject.SetActive(false);
+		oldplayergrid.transform.Find("Armor").gameObject.SetActive(false);
+		oldplayergrid.transform.Find("Weight").gameObject.SetActive(false);
 
+    }
 
     private void OnGUI()
     {
@@ -59,25 +73,12 @@ public class InventoryManager : MonoBehaviour
 		    InvGUIHook();
 	    }
 
-	    if (InventoryGui.IsVisible())
-	    {
-		    //Todo: Fixup some cool animation to actually display the new inventory box and icons during IsVisible=true 
-		    
-	    }
-
-	    if (Player.m_localPlayer == null) return;
-	    // test.UpdateInventory(Player.m_localPlayer);
-	    test.UpdateInventoryWeight(Player.m_localPlayer);
     }
 
 
     private void InvGUIHook()
     {
-	     
-	     m_Grid.m_inventory = Player.m_localPlayer.GetInventory();
-         m_Grid.m_elements = m_elements;
-         m_Grid.m_elementSpace = 80;
-         m_Grid.m_gridRoot = m_gridRoot;
-         m_Grid.m_elementPrefab = m_Element;
+	    m_Grid.m_elements = oldplayergrid.gameObject.GetComponentInChildren<InventoryGrid>().m_elements;
+	    m_Grid.m_elementSpace = 80;
     }
 }

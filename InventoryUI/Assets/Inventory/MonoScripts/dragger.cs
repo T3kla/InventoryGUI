@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
+
 
 public class dragger : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -10,8 +9,6 @@ public class dragger : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private bool isMouseDown;
     private Vector3 startMousePosition;
     private Vector3 startPosition;
-
-    internal static bool donedrag;
     private void Update()
     {
         if (isMouseDown)
@@ -29,7 +26,6 @@ public class dragger : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData dt)
     {
         isMouseDown = true;
-        donedrag = isMouseDown;
         Debug.Log("Draggable Mouse Down");
 
         startPosition = target.position;
@@ -41,8 +37,6 @@ public class dragger : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         Debug.Log("Draggable mouse up");
 
         isMouseDown = false;
-
-        donedrag = isMouseDown;
         if (shouldReturn) target.position = startPosition;
     }
 }
