@@ -57,7 +57,7 @@ public class InventoryManager : MonoBehaviour
 	}
     
 
-    private void LateUpdate()
+    private void Update()
     {
         if(Player.m_localPlayer != null)
             InvGUIHook();
