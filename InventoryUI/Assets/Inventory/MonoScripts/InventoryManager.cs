@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,15 +27,33 @@ public class InventoryManager : MonoBehaviour
     internal static GameObject internladragitem;
     internal static InventoryGrid internalgrid;
     internal static RectTransform InternalRectRootPlayer;
-    
+
+    internal static InventoryGui test;
 
     internal void Awake()
     {
+	    test = InventoryGui.instance;
+	    
 	    internalArmor = Armor;
 	    internalWeight = Weight;
 	    internladragitem = m_DragElement;
 	    internalgrid = m_Grid;
 	    InternalRectRootPlayer = m_PlayerRootRect;
+	    test.m_player = m_PlayerRootRect;
+	    test.m_playerGrid = m_Grid;
+	    test.m_armor = Armor;
+	    test.m_weight = Weight;
+	    test.m_dragItemPrefab = m_DragElement;
+	    test.m_uiGroups[1] = PlayerGroup;
+	    test.m_dropButton = DropButton;
+	    test.m_dragInventory = m_Grid.m_inventory;
+	    test.m_splitInventory = m_Grid.m_inventory;
+	    InventoryGrid tempgrid = m_Grid;
+	    tempgrid.m_onSelected = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>)Delegate.Combine(tempgrid.m_onSelected, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>(test.OnSelectedItem));
+	    InventoryGrid tempgrid2 = m_Grid;
+	    tempgrid2.m_onRightClick = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i>)Delegate.Combine(tempgrid2.m_onRightClick, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i>(test.OnRightClickItem));
+
+	    
 	}
     
 
@@ -48,15 +66,7 @@ public class InventoryManager : MonoBehaviour
     
     private void InvGUIHook()
     {
-	     InventoryGui.instance.m_player = m_PlayerRootRect;
-	     InventoryGui.instance.m_playerGrid = m_Grid;
-	     InventoryGui.instance.m_armor = Armor;
-	     InventoryGui.instance.m_weight = Weight;
-	     InventoryGui.instance.m_dragItemPrefab = m_DragElement;
-	     InventoryGui.instance.m_uiGroups[1] = PlayerGroup;
-	     InventoryGui.instance.m_dropButton = DropButton;
-	     InventoryGui.instance.m_dragInventory = m_Grid.m_inventory;
-	     InventoryGui.instance.m_splitInventory = m_Grid.m_inventory;
+	     
 	     m_Grid.m_inventory = Player.m_localPlayer.GetInventory();
          m_Grid.m_elements = m_elements;
          m_Grid.m_elementSpace = 80;
@@ -64,6 +74,9 @@ public class InventoryManager : MonoBehaviour
          m_Grid.m_height = 30;
          m_Grid.m_gridRoot = m_gridRoot;
          m_Grid.m_elementPrefab = m_Element;
-         
+         test.UpdateInventory(Player.m_localPlayer);
+         test.UpdateItemDrag();
+         test.UpdateInventoryWeight(Player.m_localPlayer);
+	    
     }
 }

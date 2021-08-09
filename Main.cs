@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using BepInEx;
 using HarmonyLib;
 using Jotunn.Managers;
@@ -25,6 +26,7 @@ namespace InventorySwapper
             GUIManager.OnPixelFixCreated += LoadInventoryWidget;
         }
 
+
         private void LoadAssets()
         {
             AssetBundle assetBundle = AssetUtils.LoadAssetBundleFromResources("inventory", typeof(InventorySwapper).Assembly);
@@ -34,7 +36,7 @@ namespace InventorySwapper
 
         private void LoadInventoryWidget()
         {
-            if (SceneManager.GetActiveScene().name == "main")
+            if (SceneManager.GetActiveScene().name == "loading" || SceneManager.GetActiveScene().name == "main")
             {
                 Instantiate(menu, GUIManager.PixelFix.transform, false);
             }
@@ -50,10 +52,6 @@ namespace InventorySwapper
                     __instance.m_gridRoot = InventoryManager.internalgrid.GetComponent<RectTransform>();
                     __instance.m_elements = InventoryManager.m_elements;
                     __instance.m_inventory = Player.m_localPlayer.m_inventory;
-                  
-                    InventoryManager.internalgrid.m_onRightClick = __instance.m_onRightClick;
-                    InventoryManager.internalgrid.m_onSelected = __instance.m_onSelected;
-                    InventoryManager.internalgrid.enabled = true;
                 }
             }
                 
