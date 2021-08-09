@@ -43,11 +43,11 @@ public class InventoryManager : MonoBehaviour
 	    test.m_dropButton = DropButton;
 	    test.m_dragInventory = m_Grid.m_inventory;
 	    test.m_splitInventory = m_Grid.m_inventory;
-	    // InventoryGrid tempgrid = m_Grid;
-	    // tempgrid.m_onSelected = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>)Delegate.Combine(tempgrid.m_onSelected, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>(test.OnSelectedItem));
-	    // InventoryGrid tempgrid2 = m_Grid;
-	    // tempgrid2.m_onRightClick = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i>)Delegate.Combine(tempgrid2.m_onRightClick, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i>(test.OnRightClickItem));
-	    //
+	    InventoryGrid tempgrid = m_Grid;
+	    tempgrid.m_onSelected = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>)Delegate.Combine(tempgrid.m_onSelected, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>(test.OnSelectedItem));
+	    InventoryGrid tempgrid2 = m_Grid;
+	    tempgrid2.m_onRightClick = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i>)Delegate.Combine(tempgrid2.m_onRightClick, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i>(test.OnRightClickItem));
+	    
     }
 
 
@@ -61,14 +61,14 @@ public class InventoryManager : MonoBehaviour
 
 	    if (InventoryGui.IsVisible())
 	    {
-		    // test.UpdateInventory(Player.m_localPlayer);
+		    test.UpdateInventory(Player.m_localPlayer);
 		    //Todo: Fixup some cool animation to actually display the new inventory box and icons during IsVisible=true 
 		    
 	    }
 
-	    // if (Player.m_localPlayer == null) return;
-	    // test.UpdateItemDrag();
-	    // test.UpdateInventoryWeight(Player.m_localPlayer);
+	    if (Player.m_localPlayer == null) return;
+	    test.UpdateItemDrag();
+	    test.UpdateInventoryWeight(Player.m_localPlayer);
     }
 
 
