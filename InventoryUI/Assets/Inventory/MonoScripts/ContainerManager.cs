@@ -18,6 +18,7 @@ public class ContainerManager : MonoBehaviour
     private void Awake()
     {
         internalcontainer = ContainerGrid;
+        
         ContainerGUI.m_takeAllButton = m_TakeAll;
         ContainerGUI.m_containerName = m_GraveText;
         ContainerGUI.m_containerWeight = m_ContainerWeight;

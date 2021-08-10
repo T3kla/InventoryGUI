@@ -24,6 +24,7 @@ namespace InventorySwapper
         public static GameObject m_dragGo;
         public static GameObject MyDragItem;
         public static GameObject MyContainer;
+        public static GameObject SplitScreen;
         private void Awake()
         {
             LoadAssets();
@@ -43,6 +44,8 @@ namespace InventorySwapper
             menu = assetBundle.LoadAsset<GameObject>("OldInventory");
             MyDragItem = assetBundle.LoadAsset<GameObject>("drag_itemz");
             MyContainer = assetBundle.LoadAsset<GameObject>("Container");
+            SplitScreen = assetBundle.LoadAsset<GameObject>("SplitInventory");
+            
             assetBundle?.Unload(false);
         }
 
@@ -53,6 +56,8 @@ namespace InventorySwapper
             thing.transform.localPosition = new Vector3(0f, -83.06f, 0f);
             var Container2 = Instantiate(MyContainer, GUIManager.PixelFix.transform, false);
             Container2.transform.localPosition = new Vector3(0f, 0f, 0f);
+            var Split = Instantiate(SplitScreen, GUIManager.PixelFix.transform, false);
+            Split.transform.localPosition = new Vector3(0f, 0f, 0f);
         }
 
         [HarmonyPatch(typeof(InventoryGui), nameof(InventoryGui.Awake))]
@@ -62,6 +67,7 @@ namespace InventorySwapper
             {
                 InventoryManager.test = __instance;
                 ContainerManager.ContainerGUI = __instance;
+                SplitWindowManager.SplitGUI = __instance;
                 
                 var font = __instance.m_dragItemPrefab.gameObject.transform.Find("amount").GetComponent<Text>();
                     font.font = MyDragItem.GetComponentInChildren<Text>().font;
@@ -99,6 +105,7 @@ namespace InventorySwapper
                     __instance.m_elementPrefab = InventoryManager.internalElement;
                     ContainerManager.internalcontainer.m_uiGroup = __instance.m_uiGroup;
                 }
+                
             }
         }
 
