@@ -44,17 +44,19 @@ public class InventoryManager : MonoBehaviour
 	    test.m_armor = Armor;
 	    test.m_weight = Weight;
 	    
-	    test.m_dragGo = InventorySwapper.InventorySwapper.m_dragGo;
+	    
 	    
 	    test.m_uiGroups[1] = PlayerGroup;
 	    test.m_dropButton = DropButton;
 	    
-	    
+	    //Comment this chunk out to build prefabs
 		DropButton.onClick.AddListener(test.OnDropOutside);
 		InventoryGrid tempgrid = m_Grid;
 		tempgrid.m_onSelected = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>)Delegate.Combine(tempgrid.m_onSelected, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>(test.OnSelectedItem));
 		InventoryGrid tempgrid2 = m_Grid;
 		tempgrid2.m_onRightClick = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i>)Delegate.Combine(tempgrid2.m_onRightClick, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i>(test.OnRightClickItem));
+		test.m_dragGo = InventorySwapper.InventorySwapper.m_dragGo;
+		//
 		
 		//Turn off the old UI things we dont wanna lookat anymore
 		Destroy(oldplayergrid.transform.Find("PlayerGrid").gameObject);

@@ -30,6 +30,8 @@ public class SplitWindowManager : MonoBehaviour
         SplitGUI.m_splitPanel.gameObject.SetActive(false);
         SplitGUI.m_splitIconName = ItemName;
         
+        
+        //Comment these 3 lines out to build prefabs
         OK.onClick.AddListener(SplitGUI.OnSplitOk);
         Cancel.onClick.AddListener(SplitGUI.OnSplitCancel);
         InvSlider.onValueChanged.AddListener(SplitGUI.OnSplitSliderChanged);

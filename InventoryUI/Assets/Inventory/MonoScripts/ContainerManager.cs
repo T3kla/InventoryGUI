@@ -27,8 +27,9 @@ public class ContainerManager : MonoBehaviour
         ContainerGrid.m_elements = OldContainer.GetComponentInChildren<InventoryGrid>().m_elements;
         ContainerGUI.m_uiGroups[1] = ContainerGroup;
         
+        //Comment this out to build prefabs or refactor my code
         m_TakeAll.onClick.AddListener(ContainerGUI.OnTakeAll);
-        
+        //
         
         m_ContainerGO.transform.SetParent(OldContainer.gameObject.transform);
         m_ContainerGO.transform.SetSiblingIndex(OldContainer.gameObject.transform.GetSiblingIndex());
