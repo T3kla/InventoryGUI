@@ -50,7 +50,7 @@ public class InventoryManager : MonoBehaviour
 	    test.m_dropButton = DropButton;
 	    
 	    
-	    DropButton.onClick.AddListener(test.OnDropOutside);
+		DropButton.onClick.AddListener(test.OnDropOutside);
 		InventoryGrid tempgrid = m_Grid;
 		tempgrid.m_onSelected = (Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>)Delegate.Combine(tempgrid.m_onSelected, new Action<InventoryGrid, ItemDrop.ItemData, Vector2i, InventoryGrid.Modifier>(test.OnSelectedItem));
 		InventoryGrid tempgrid2 = m_Grid;
