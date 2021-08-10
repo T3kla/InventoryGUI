@@ -40,6 +40,7 @@ public class SplitWindowManager : MonoBehaviour
         SliderGO.transform.SetParent(OldSplitter.transform);
         SliderGO.transform.SetSiblingIndex(OldSplitter.transform.GetSiblingIndex());
 
+        Debug.Log("Split Manager Loaded");
     }
    
 }

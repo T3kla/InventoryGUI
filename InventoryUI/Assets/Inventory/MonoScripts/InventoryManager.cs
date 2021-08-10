@@ -63,6 +63,8 @@ public class InventoryManager : MonoBehaviour
 		oldplayergrid.transform.Find("Armor").gameObject.SetActive(false);
 		oldplayergrid.transform.Find("Weight").gameObject.SetActive(false);
 
+
+		Debug.Log("InventoryMangerLoaded");
     }
 
     private void OnGUI()

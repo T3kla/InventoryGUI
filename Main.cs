@@ -54,10 +54,11 @@ namespace InventorySwapper
             if (SceneManager.GetActiveScene().name is not ("loading" or "main")) return;
             var thing = Instantiate(menu, GUIManager.PixelFix.transform, false);
             thing.transform.localPosition = new Vector3(0f, -83.06f, 0f);
-            var Container2 = Instantiate(MyContainer, GUIManager.PixelFix.transform, false);
-            Container2.transform.localPosition = new Vector3(0f, 0f, 0f);
             var Split = Instantiate(SplitScreen, GUIManager.PixelFix.transform, false);
             Split.transform.localPosition = new Vector3(0f, 0f, 0f);
+            var Container2 = Instantiate(MyContainer, GUIManager.PixelFix.transform, false);
+            Container2.transform.localPosition = new Vector3(0f, 0f, 0f);
+
         }
 
         [HarmonyPatch(typeof(InventoryGui), nameof(InventoryGui.Awake))]

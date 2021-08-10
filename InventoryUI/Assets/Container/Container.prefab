@@ -1244,7 +1244,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 93ec60aecb660a54392aa40a125ac51f, type: 3}
-    m_FontSize: 32
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -1255,7 +1255,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: GRAVE
+  m_Text: GRAVE!
 --- !u!114 &6437954599346505031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1711,7 +1711,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1721,10 +1721,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: fbe6efc21e2190a40831262022ee5ec9,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: f2a00de9cad5b284e8b2d079b1902676, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 60dc3737eec453e429a913e378f3bd24, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: fbe6efc21e2190a40831262022ee5ec9, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted

@@ -14,7 +14,8 @@ public class ContainerManager : MonoBehaviour
     internal static InventoryGrid internalcontainer;
     internal static GameObject OldContainer;
     internal static InventoryGui ContainerGUI;
-
+    internal static Button takeallbutton;
+    
     private void Awake()
     {
         internalcontainer = ContainerGrid;
@@ -24,6 +25,7 @@ public class ContainerManager : MonoBehaviour
         ContainerGUI.m_containerWeight = m_ContainerWeight;
         OldContainer = ContainerGUI.m_container.gameObject;
         ContainerGrid.m_elements = OldContainer.GetComponentInChildren<InventoryGrid>().m_elements;
+        ContainerGUI.m_uiGroups[1] = ContainerGroup;
         
         m_TakeAll.onClick.AddListener(ContainerGUI.OnTakeAll);
         
@@ -40,5 +42,6 @@ public class ContainerManager : MonoBehaviour
         OldContainer.transform.Find("ContainerGrid").gameObject.SetActive(false);
         OldContainer.transform.Find("ContainerScroll").gameObject.SetActive(false);
         OldContainer.transform.Find("TakeAll").gameObject.SetActive(false);
+        Debug.Log("Container Manager Loaded");
     }
 }
