@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_PlayerRootRect: {fileID: 268366419248610902}
   Armor: {fileID: 1577762434126670836}
   Weight: {fileID: 5917412143359755244}
-  m_Element: {fileID: 806215394707018984, guid: 8f3b7e324d19dd247a14e6b5edf68033,
+  m_Element: {fileID: 806215394707018984, guid: 58425e8851d07ed4fa43bb89072e44f0,
     type: 3}
   m_inventoryRoot: {fileID: 5023134982977344664}
   m_DragElement: {fileID: 806215394707018984, guid: 711602afb22e9c44fbd69ecbd7bf126c,
