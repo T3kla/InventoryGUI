@@ -1710,9 +1710,6 @@ MonoBehaviour:
   m_defaultElement: {fileID: 0}
   m_enableWhenActiveAndGamepad: {fileID: 0}
   m_groupPriority: 1
-  m_canvasGroup: {fileID: 0}
-  m_userActive: 1
-  m_active: 1
 --- !u!114 &6565603533793398114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,7 +1740,7 @@ MonoBehaviour:
   m_Grid: {fileID: 3751499555779836267}
   m_gridRoot: {fileID: 3020142397256630166}
   m_PlayerRootRect: {fileID: 268366419248610902}
-  Armor: {fileID: 0}
+  Armor: {fileID: 7096970682897685227}
   Weight: {fileID: 5917412143359755244}
   m_Element: {fileID: 806215394707018984, guid: 8f3b7e324d19dd247a14e6b5edf68033,
     type: 3}
@@ -3093,7 +3090,7 @@ MonoBehaviour:
   m_uiGroup: {fileID: 858672239033572458}
   m_elementSpace: 80
   m_width: 4
-  m_height: 15
+  m_height: 8
 --- !u!114 &858672239033572458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3109,9 +3106,6 @@ MonoBehaviour:
   m_defaultElement: {fileID: 0}
   m_enableWhenActiveAndGamepad: {fileID: 0}
   m_groupPriority: 1
-  m_canvasGroup: {fileID: 0}
-  m_userActive: 1
-  m_active: 1
 --- !u!1 &8097942473095789895
 GameObject:
   m_ObjectHideFlags: 0
