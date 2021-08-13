@@ -21,12 +21,12 @@ public class ContainerManager : MonoBehaviour
         internalcontainer = ContainerGrid;
         m_TakeAll.onClick.AddListener(ContainerGUI.OnTakeAll);
         
-        InventorySwapper.InventorySwapper.staticGUI.m_takeAllButton = m_TakeAll;
-        InventorySwapper.InventorySwapper.staticGUI.m_containerName = m_GraveText;
-        InventorySwapper.InventorySwapper.staticGUI.m_containerWeight = m_ContainerWeight;
-        OldContainer = InventorySwapper.InventorySwapper.staticGUI.m_container.gameObject;
+        ContainerGUI.m_takeAllButton = m_TakeAll;
+        ContainerGUI.m_containerName = m_GraveText;
+        ContainerGUI.m_containerWeight = m_ContainerWeight;
+        OldContainer = ContainerGUI.m_container.gameObject;
         ContainerGrid.m_elements = OldContainer.GetComponentInChildren<InventoryGrid>().m_elements;
-        InventorySwapper.InventorySwapper.staticGUI.m_uiGroups[0] = ContainerGroup;
+        ContainerGUI.m_uiGroups[0] = ContainerGroup;
         m_ContainerGO.transform.SetParent(OldContainer.gameObject.transform);
         m_ContainerGO.transform.SetSiblingIndex(OldContainer.gameObject.transform.GetSiblingIndex());
         
