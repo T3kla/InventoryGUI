@@ -21,20 +21,20 @@ public class SplitWindowManager : MonoBehaviour
         OldSplitter.transform.Find("win_bkg").gameObject.SetActive(false);
 
         OldSplitter.SetActive(true);
-        SplitGUI.m_splitOkButton = OK;
-        SplitGUI.m_splitCancelButton = Cancel;
-        SplitGUI.m_splitAmount = SliderText;
-        SplitGUI.m_splitSlider = InvSlider;
-        SplitGUI.m_splitPanel = SliderGO.GetComponent<RectTransform>();
-        SplitGUI.m_splitIcon = Icon;
-        SplitGUI.m_splitPanel.gameObject.SetActive(false);
-        SplitGUI.m_splitIconName = ItemName;
+        InventorySwapper.InventorySwapper.staticGUI.m_splitOkButton = OK;
+        InventorySwapper.InventorySwapper.staticGUI.m_splitCancelButton = Cancel;
+        InventorySwapper.InventorySwapper.staticGUI.m_splitAmount = SliderText;
+        InventorySwapper.InventorySwapper.staticGUI.m_splitSlider = InvSlider;
+        InventorySwapper.InventorySwapper.staticGUI.m_splitPanel = SliderGO.GetComponent<RectTransform>();
+        InventorySwapper.InventorySwapper.staticGUI.m_splitIcon = Icon;
+        InventorySwapper.InventorySwapper.staticGUI.m_splitPanel.gameObject.SetActive(false);
+        InventorySwapper.InventorySwapper.staticGUI.m_splitIconName = ItemName;
         
         
         //Comment these 3 lines out to build prefabs
-        OK.onClick.AddListener(SplitGUI.OnSplitOk);
-        Cancel.onClick.AddListener(SplitGUI.OnSplitCancel);
-        InvSlider.onValueChanged.AddListener(SplitGUI.OnSplitSliderChanged);
+        OK.onClick.AddListener(InventorySwapper.InventorySwapper.staticGUI.OnSplitOk);
+        Cancel.onClick.AddListener(InventorySwapper.InventorySwapper.staticGUI.OnSplitCancel);
+        InvSlider.onValueChanged.AddListener(InventorySwapper.InventorySwapper.staticGUI.OnSplitSliderChanged);
 
         
 

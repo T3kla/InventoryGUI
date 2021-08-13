@@ -25,6 +25,7 @@ namespace InventorySwapper
         public static GameObject MyDragItem;
         public static GameObject MyContainer;
         public static GameObject SplitScreen;
+        internal static InventoryGui staticGUI;
         private void Awake()
         {
             LoadAssets();
@@ -66,6 +67,7 @@ namespace InventorySwapper
         {
             public static void Postfix(InventoryGui __instance)
             {
+                staticGUI = __instance;
                 InventoryManager.test = __instance;
                 ContainerManager.ContainerGUI = __instance;
                 SplitWindowManager.SplitGUI = __instance;
