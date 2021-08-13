@@ -19,18 +19,14 @@ public class ContainerManager : MonoBehaviour
     private void Awake()
     {
         internalcontainer = ContainerGrid;
+        m_TakeAll.onClick.AddListener(ContainerGUI.OnTakeAll);
         
         ContainerGUI.m_takeAllButton = m_TakeAll;
         ContainerGUI.m_containerName = m_GraveText;
         ContainerGUI.m_containerWeight = m_ContainerWeight;
         OldContainer = ContainerGUI.m_container.gameObject;
         ContainerGrid.m_elements = OldContainer.GetComponentInChildren<InventoryGrid>().m_elements;
-        ContainerGUI.m_uiGroups[1] = ContainerGroup;
-        
-        //Comment this out to build prefabs or refactor my code
-        m_TakeAll.onClick.AddListener(ContainerGUI.OnTakeAll);
-        //
-        
+        ContainerGUI.m_uiGroups[0] = ContainerGroup;
         m_ContainerGO.transform.SetParent(OldContainer.gameObject.transform);
         m_ContainerGO.transform.SetSiblingIndex(OldContainer.gameObject.transform.GetSiblingIndex());
         
