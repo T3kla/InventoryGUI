@@ -75,3 +75,14 @@ crashlytics-build.properties
 
 # AssetBundles (manual copy these)
 /[Aa]ssetBundles*
+InventoryUI/Assets/valheim_assemblies/assembly_valheim.dll
+InventoryUI/Assets/valheim_assemblies/assembly_utils.dll
+InventoryUI/Assets/valheim_assemblies/assembly_sunshafts.dll
+InventoryUI/Assets/valheim_assemblies/assembly_steamworks.dll
+InventoryUI/Assets/valheim_assemblies/assembly_simplemeshcombine.dll
+InventoryUI/Assets/valheim_assemblies/assembly_postprocessing.dll
+InventoryUI/Assets/valheim_assemblies/assembly_lux.dll
+InventoryUI/Assets/valheim_assemblies/assembly_guiutils.dll
+InventoryUI/Assets/valheim_assemblies/assembly_googleanalytics 1.dll.meta
+InventoryUI/Assets/valheim_assemblies/assembly_googleanalytics 1.dll
+InventoryUI/Assets/valheim_assemblies/assembly_googleanalytics 1.dll.meta

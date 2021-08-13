@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 0
-  m_Elasticity: 10
+  m_Elasticity: 2
   m_Inertia: 0
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 45
@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_PlayerRootRect: {fileID: 268366419248610902}
   Armor: {fileID: 1577762434126670836}
   Weight: {fileID: 5917412143359755244}
-  m_Element: {fileID: 806215394707018984, guid: 8f3b7e324d19dd247a14e6b5edf68033,
+  m_Element: {fileID: 806215394707018984, guid: 58425e8851d07ed4fa43bb89072e44f0,
     type: 3}
   m_inventoryRoot: {fileID: 5023134982977344664}
   m_DragElement: {fileID: 806215394707018984, guid: 711602afb22e9c44fbd69ecbd7bf126c,
@@ -2374,7 +2374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5187173270245166414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2397,8 +2397,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 424, y: 188.01}
-  m_SizeDelta: {x: 253.95636, y: 376.0298}
+  m_AnchoredPosition: {x: 428.1, y: 188.01}
+  m_SizeDelta: {x: 196.93683, y: 376.0298}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4499960661174799362
 CanvasRenderer:
@@ -2429,7 +2429,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: df3fa5e90cd637443b95cd1a7c1a0b75, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
